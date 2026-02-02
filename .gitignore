@@ -1,0 +1,14 @@
+*.gz
+*.log
+*.tsv
+*.tgz
+sumstats/
+munge/
+out/
+ref/
+filters/
+scripts/batch*.sh
+nohup.out
+*.pid
+*_OLD/
+*_BROKEN/

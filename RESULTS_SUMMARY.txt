@@ -1,0 +1,26 @@
+# LDSC Analysis Results Summary
+
+## Dataset
+- IDP: UK Biobank BIG40 (N=33k, 173 phenotypes)
+- EA: Neale Lab phenotype 845 (N=240k)
+
+## Results
+### Heritability
+- 173 IDPs: mean h²=0.20, range=[-0.006, 0.36]
+- EA: h²=0.097 ± 0.005
+
+### Genetic Correlations
+- 163/172 successful
+- Mean rg=0.041, range=[-0.11, +0.19]
+- 37 significant (p<0.05, 22.7%)
+- 14 highly significant (p<0.01, 8.6%)
+
+### Top Hits
+IDP_0666 (Pars orbitalis L): rg=0.194, p=0.0001
+IDP_0684 (Caudal ant. cingulate R): rg=0.187, p=0.0006
+IDP_0689 (Inferior parietal R): rg=0.153, p=0.0002
+
+## Validation
+✓ Consistent with Satizabal 2019
+✓ Same brain regions identified
+✓ Similar effect sizes

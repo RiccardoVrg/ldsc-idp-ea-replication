@@ -1,0 +1,16 @@
+# SETUP STEPS (già completato)
+
+1. Install LDSC:
+   conda create -n ldsc python=2.7
+   conda activate ldsc
+   git clone https://github.com/bulik/ldsc.git
+   cd ldsc
+   pip install -r requirements.txt
+
+2. Download reference files:
+   wget https://zenodo.org/records/10515792/files/1000G_Phase3_weights_hm3_no_MHC.tgz
+   wget https://zenodo.org/records/10515792/files/1000G_Phase3_ldscores.tgz
+
+3. Download IDP sumstats (173 files from UK Biobank BIG40)
+   
+4. Download EA sumstats (Neale Lab phenotype 845)
