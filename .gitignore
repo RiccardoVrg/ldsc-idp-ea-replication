@@ -1,3 +1,4 @@
+# Data files (except final results in data/)
 *.gz
 *.log
 *.tsv
@@ -12,3 +13,12 @@ nohup.out
 *.pid
 *_OLD/
 *_BROKEN/
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db

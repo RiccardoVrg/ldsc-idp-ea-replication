@@ -2,19 +2,22 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
+import os
 
 # Carica risultati
-rg_data = pd.read_csv('rg_ALL_163_IDPs_FINAL.csv')
-h2_data = pd.read_csv('h2_ALL_173_IDPs_FINAL.csv')
+rg_data = pd.read_csv('data/rg_ALL_163_IDPs_FINAL.csv')
+h2_data = pd.read_csv('data/h2_ALL_173_IDPs_FINAL.csv')
 
-# Fix: converti IDP in string per entrambi
+# Fix: converti IDP in string
 rg_data['IDP'] = rg_data['IDP'].astype(str)
 h2_data['IDP'] = h2_data['IDP'].astype(str)
 
 # Merge
 data = pd.merge(rg_data, h2_data[['IDP', 'h2']], on='IDP', how='left')
-
 print(f"Loaded {len(data)} IDPs")
+
+# Crea directory results se non esiste
+os.makedirs('results', exist_ok=True)
 
 # FIGURE 1: Scatterplot
 fig, ax = plt.subplots(figsize=(8, 6))
@@ -29,7 +32,7 @@ legend_elements = [Patch(facecolor='red', label='p < 0.01'), Patch(facecolor='or
 ax.legend(handles=legend_elements, loc='best')
 ax.grid(True, alpha=0.3)
 plt.tight_layout()
-plt.savefig('Figure1_rg_scatterplot.png', dpi=300, bbox_inches='tight')
+plt.savefig('results/Figure1_rg_scatterplot.png', dpi=300, bbox_inches='tight')
 print("✓ Figure 1 saved")
 plt.close()
 
@@ -51,7 +54,7 @@ ax2.set_xticklabels(['Non-sig.', 'Significant\n(p<0.05)'])
 ax2.set_ylabel('Genetic correlation (rg)', fontsize=12)
 ax2.set_title('rg by significance', fontsize=13, fontweight='bold')
 plt.tight_layout()
-plt.savefig('Figure2_rg_distribution.png', dpi=300, bbox_inches='tight')
+plt.savefig('results/Figure2_rg_distribution.png', dpi=300, bbox_inches='tight')
 print("✓ Figure 2 saved")
 plt.close()
 
@@ -67,8 +70,9 @@ ax.set_title('Top 20 IDPs by significance', fontsize=14, fontweight='bold')
 ax.axvline(0, color='black', linestyle='--', linewidth=1)
 ax.grid(True, alpha=0.3, axis='x')
 plt.tight_layout()
-plt.savefig('Figure3_top20_barplot.png', dpi=300, bbox_inches='tight')
+plt.savefig('results/Figure3_top20_barplot.png', dpi=300, bbox_inches='tight')
 print("✓ Figure 3 saved")
 plt.close()
 
 print("\nAll figures created successfully!")
+print("Results saved in: results/")
